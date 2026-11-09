@@ -1,0 +1,311 @@
+/* --- VARIABLES & PALETTE DARK CYBER --- */
+:root {
+    --bg-dark: #0b0f17;
+    --bg-card: #131b27;
+    --bg-table-even: #182232;
+    --bg-table-hover: #1e2c40;
+    --border-color: #233144;
+    --accent-cyan: #00f2fe;
+    --accent-green: #10b981;
+    --text-main: #f0f6fc;
+    --text-muted: #94a3b8;
+    
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Dégradé de couleur en arrière-plan */
+body {
+    background: linear-gradient(135deg, #0b0f17 0%, #070a10 100%);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+/* --- NAVIGATION HAUTE --- */
+.top-nav {
+    max-width: 950px;
+    margin: 0 auto 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.nav-brand {
+    color: var(--border-color);
+    color: var(--text-muted);
+}
+
+.back-btn {
+    color: var(--text-main);
+    text-decoration: none;
+    background: var(--bg-card);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    color: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+}
+
+.status-tag {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-green);
+}
+
+/* --- CONTENEUR PRINCIPAL --- */
+.cv-container {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin-bottom: 1.25rem;
+}
+
+.email-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-main);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    background: rgba(0, 242, 254, 0.05);
+    border: 1px solid var(--accent-cyan);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.email-btn:hover {
+    background: rgba(0, 242, 254, 0.15);
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+}
+
+/* 2ème technique demandée : Zoom de l'image avec transform: scale */
+.header-logo img, .zoom-img {
+    width: 170px;
+    height: auto;
+    border-radius: 8px;
+    background: #fff;
+    padding: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-logo img:hover, .zoom-img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+/* --- SECTIONS ET TITRES H1 --- */
+.section {
+    margin-bottom: 3rem;
+}
+
+.section-heading {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+}
+
+.prefix {
+    color: var(--accent-cyan);
+}
+
+.title-link {
+    color: var(--text-main);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.title-icon {
+    font-size: 0.9rem;
+    opacity: 0.5;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Règle survol de lien h1 */
+.title-link:hover {
+    color: var(--accent-cyan);
+}
+
+.title-link:hover .title-icon {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* --- STYLE DES TABLEAUX (Exigences TP) --- */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.custom-table th {
+    background-color: #1a2536;
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.custom-table td {
+    padding: 1rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(35, 49, 68, 0.5);
+}
+
+.custom-table td strong {
+    color: var(--text-main);
+}
+
+.date-cell {
+    font-family: var(--font-mono);
+    color: var(--accent-cyan) !important;
+    font-size: 0.88rem;
+}
+
+/* Règle demandée : Colorer les lignes impaires (nth-child) */
+.custom-table tbody tr:nth-child(odd) {
+    background-color: var(--bg-table-even);
+}
+
+/* Règle demandée : Changement de couleur au survol de la souris sur la ligne (tr:hover) */
+.custom-table tbody tr:hover {
+    background-color: var(--bg-table-hover);
+}
+
+/* Règle demandée : Survol des liens en couleur néon */
+a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+/* --- PAGES DETAILLES (formations.html & experiences.html) --- */
+.detail-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.detail-card:hover {
+    border-color: rgba(0, 242, 254, 0.4);
+}
+
+.detail-card h2 {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+}
+
+.detail-card .meta {
+    font-family: var(--font-mono);
+    color: var(--accent-cyan);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+}
+
+.detail-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.detail-card ul {
+    margin-left: 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+.detail-card ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- MEDIA QUERY (Exigence TP : max-width: 600px) --- */
+@media only screen and (max-width: 600px) {
+    /* Changement de couleur / gradient de fond sur petit écran */
+    body {
+        background: radial-gradient(circle, rgba(19,27,39,1) 0%, rgba(11,15,23,1) 100%);
+        padding: 1rem 0.5rem;
+    }
+    
+    .header {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    /* Adaptation du tableau pour visibilité sur mobile */
+    .custom-table th, .custom-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}

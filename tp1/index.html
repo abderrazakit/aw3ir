@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Fichier CSS externe -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Feuille de style demandée par le TP -->
+    <link rel="stylesheet" href="cv.css" />
 </head>
 <body>
 
     <!-- Barre de navigation haute -->
     <nav class="top-nav">
-        <a href="../index.html" class="nav-link"><i class="fa-solid fa-house"></i> Index / TP1</a>
+        <span class="nav-brand"><i class="fa-solid fa-terminal"></i> root@cybersec:~# whoami</span>
         <div class="status-tag"><span class="dot"></span> SecOps / SOC Analyst</div>
     </nav>
 
@@ -25,8 +25,7 @@
         <!-- En-tête -->
         <header class="header">
             <div class="header-main">
-                <p class="console-prompt">root@cybersec:~# whoami</p>
-                <h1 class="title">Abderrazak HAJJI</h1>
+                <h1 class="main-title">Abderrazak HAJJI</h1>
                 <p class="subtitle">Master 2 en Ingénierie et innovation en images et réseaux parcours réseaux</p>
                 
                 <div class="contact-info">
@@ -37,223 +36,141 @@
             </div>
             
             <div class="header-logo">
-                <img src="logo_institut_galilee_1.jpg" alt="Logo Galilée" width="170"">
+                <img src="logo_institut_galilee_1.jpg" alt="Logo Galilée" class="zoom-img">
             </div>
         </header>
 
-        <!-- Formations -->
+        <!-- Formations (Titre h1 avec lien vers formations.html) -->
         <section class="section">
-            <h2 class="section-heading">
-                <span class="heading-prefix">//</span> Formations
-            </h2>
-            <div class="timeline">
-                <div class="timeline-row">
-                    <div class="time-col">2026 – 2027</div>
-                    <div class="content-col">
-                        <h3>Master 2 Réseaux (I3R)</h3>
-                        <p class="institution">
-                            <a href="https://www.univ-spn.fr/portfolio/institut-galilee/" target="_blank">
-                                Institut Galilée - Université Sorbonne Paris Nord <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="timeline-row">
-                    <div class="time-col">2023 – 2026</div>
-                    <div class="content-col">
-                        <h3>Diplôme d’Ingénieur d’État en ITIRC</h3>
-                        <p class="institution">
-                            <a href="https://ensao.ump.ma/" target="_blank">
-                                École Nationale des Sciences Appliquées d'Oujda <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="timeline-row">
-                    <div class="time-col">2021 – 2023</div>
-                    <div class="content-col">
-                        <h3>DEUG Sciences de la Matière Physique (SMP)</h3>
-                        <p class="institution">
-                            <a href="http://fso.ump.ma/" target="_blank">
-                                Faculté des Sciences Oujda <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <h1 class="section-heading">
+                <a href="formations.html" class="title-link">
+                    <span class="prefix">//</span> Formations <i class="fa-solid fa-arrow-right-long title-icon"></i>
+                </a>
+            </h1>
+            <table width="100%" border="0" class="custom-table">
+                <thead>
+                    <tr>
+                        <th width="20%">Année</th>
+                        <th width="40%">Diplôme</th>
+                        <th width="40%">Établissement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="date-cell">2026 – 2027</td>
+                        <td><strong>Master 2 Réseaux (I3R)</strong></td>
+                        <td><a href="https://www.univ-spn.fr/portfolio/institut-galilee/" target="_blank">Institut Galilée - Université Sorbonne Paris Nord</a></td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">2023 – 2026</td>
+                        <td><strong>Diplôme d’Ingénieur d’État en ITIRC</strong></td>
+                        <td><a href="https://ensao.ump.ma/" target="_blank">École Nationale des Sciences Appliquées d'Oujda</a></td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">2021 – 2023</td>
+                        <td><strong>DEUG Sciences de la Matière Physique (SMP)</strong></td>
+                        <td><a href="http://fso.ump.ma/" target="_blank">Faculté des Sciences Oujda</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
-        <!-- Expériences professionnelles -->
+        <!-- Expériences (Titre h1 avec lien vers experiences.html) -->
         <section class="section">
-            <h2 class="section-heading">
-                <span class="heading-prefix">//</span> Expériences professionnelles
-            </h2>
-            <div class="timeline">
-                <div class="timeline-row">
-                    <div class="time-col">2026 <small>(7 mois)</small></div>
-                    <div class="content-col">
-                        <h3>Stage PFE - Étude des solutions NDR au SOC</h3>
-                        <p class="institution">
-                            <a href="https://www.tessi.eu/" target="_blank">
-                                TESSI Services <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="timeline-row">
-                    <div class="time-col">2025 <small>(2 mois)</small></div>
-                    <div class="content-col">
-                        <h3>Stage PFA - Infrastructure & Cybersécurité</h3>
-                        <p class="institution">
-                            <a href="https://berkanewecan.ma/fr/majal-berkane-2/" target="_blank">
-                                Majal Berkane <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-row">
-                    <div class="time-col">2025 – 2026</div>
-                    <div class="content-col">
-                        <h3>Responsable du Club ITIRC</h3>
-                        <p class="institution">
-                            <a href="https://foia.ma/_/" target="_blank">
-                                Maison des Sciences d’Oujda <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-row">
-                    <div class="time-col">2024 – 2025</div>
-                    <div class="content-col">
-                        <h3>Enquêteur - RGPH</h3>
-                        <p class="institution">
-                            <a href="https://www.hcp.ma/" target="_blank">
-                                Haut-Commissariat au Plan (HCP) <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <h1 class="section-heading">
+                <a href="experiences.html" class="title-link">
+                    <span class="prefix">//</span> Expériences professionnelles <i class="fa-solid fa-arrow-right-long title-icon"></i>
+                </a>
+            </h1>
+            <table width="100%" border="0" class="custom-table">
+                <thead>
+                    <tr>
+                        <th width="20%">Période</th>
+                        <th width="40%">Poste</th>
+                        <th width="40%">Entreprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="date-cell">2026 <small>(7 mois)</small></td>
+                        <td><strong>Stage PFE - Étude des solutions NDR au SOC</strong></td>
+                        <td><a href="https://www.tessi.eu/" target="_blank">TESSI Services</a></td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">2025 <small>(2 mois)</small></td>
+                        <td><strong>Stage PFA - Infrastructure & Cybersécurité</strong></td>
+                        <td><a href="https://berkanewecan.ma/fr/majal-berkane-2/" target="_blank">Majal Berkane</a></td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">2025 – 2026</td>
+                        <td><strong>Responsable du Club ITIRC</strong></td>
+                        <td><a href="https://foia.ma/_/" target="_blank">Maison des Sciences d’Oujda</a></td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">2024 – 2025</td>
+                        <td><strong>Enquêteur - RGPH</strong></td>
+                        <td><a href="https://www.hcp.ma/" target="_blank">Haut-Commissariat au Plan (HCP)</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
-        <!-- Compétences Techniques -->
+        <!-- Compétences -->
         <section class="section">
-            <h2 class="section-heading">
-                <span class="heading-prefix">//</span> Compétences Techniques
-            </h2>
-            
-            <p class="skills-summary">
-                Stack technologique éprouvée sur le terrain pour la défense opérationnelle SOC, l'investigation d'incidents, la sécurité offensive et le développement sécurisé.
-            </p>
-
-            <div class="skills-grid">
-                
-                <!-- Cybersécurité & SOC -->
-                <div class="skill-card">
-                    <div class="card-head">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <h3>Cybersécurité & SOC</h3>
-                    </div>
-                    <ul class="detail-list">
-                        <li><strong>SIEM & Investigation :</strong> Ingestion de logs, corrélation d'alertes et tri d'incidents via Splunk, Logpoint & Kibana.</li>
-                        <li><strong>EDR & NDR :</strong> Analyse comportementale sur endpoints (Sophos) et détection réseau (Darktrace, Gatewatcher, Allentis).</li>
-                        <li><strong>Threat Intel & Case Management :</strong> Ingestion d'IoCs (CybelAngel, XMCO), réponse à incident sur DFIR IRIS et inventaire Lansweeper.</li>
-                        <li><strong>Sécurité Offensive :</strong> Audit Pentest Active Directory & Web avec Burp Suite, Metasploit, Nmap & NetExec.</li>
-                    </ul>
-                    <div class="tags-row">
-                        <span class="tag">Splunk / Kibana</span>
-                        <span class="tag">Sophos EDR</span>
-                        <span class="tag">Darktrace NDR</span>
-                        <span class="tag">Burp Suite</span>
-                        <span class="tag">DFIR IRIS</span>
-                    </div>
-                </div>
-
-                <!-- Réseaux & Infrastructures -->
-                <div class="skill-card">
-                    <div class="card-head">
-                        <i class="fa-solid fa-network-wired"></i>
-                        <h3>Réseaux & Infrastructures</h3>
-                    </div>
-                    <ul class="detail-list">
-                        <li><strong>Équipements Cisco :</strong> Configuration de commutateurs et routeurs sous Cisco IOS (CCNA), segmentation VLANs et ACLs.</li>
-                        <li><strong>Analyse de Trafic :</strong> Capture et analyse approfondie de trames au niveau paquet avec Wireshark (TCP/IP, DNS, DHCP, NAT).</li>
-                        <li><strong>Architectures Télecoms & 5G :</strong> Manipulation d'architectures cœurs 5G (Free5GC) et pare-feux périmétriques.</li>
-                    </ul>
-                    <div class="tags-row">
-                        <span class="tag">Cisco IOS</span>
-                        <span class="tag">Wireshark</span>
-                        <span class="tag">VLANs / ACLs</span>
-                        <span class="tag">Free5GC</span>
-                    </div>
-                </div>
-
-                <!-- Développement & Scripting -->
-                <div class="skill-card">
-                    <div class="card-head">
-                        <i class="fa-solid fa-code"></i>
-                        <h3>Développement & Scripting</h3>
-                    </div>
-                    <ul class="detail-list">
-                        <li><strong>Automatisation SOC :</strong> Développement de scripts de parsing de logs et d'automatisation en Python & Bash.</li>
-                        <li><strong>Web & AI Integration :</strong> Développement d'applications Web Full-Stack (Django, REST API) et assistants RAG (API Gemini).</li>
-                        <li><strong>Programmation système :</strong> Développement orienté objet et applicatif bas niveau en C/C++ & Java (Spring Boot).</li>
-                    </ul>
-                    <div class="tags-row">
-                        <span class="tag">Python</span>
-                        <span class="tag">Bash</span>
-                        <span class="tag">Django</span>
-                        <span class="tag">C / C++</span>
-                        <span class="tag">Spring Boot</span>
-                    </div>
-                </div>
-
-                <!-- Systèmes & DevOps -->
-                <div class="skill-card">
-                    <div class="card-head">
-                        <i class="fa-solid fa-server"></i>
-                        <h3>Systèmes & DevOps</h3>
-                    </div>
-                    <ul class="detail-list">
-                        <li><strong>Systèmes d'Exploitation :</strong> Administration Kali Linux, Debian/Ubuntu et gestion de domaine Windows Server (Active Directory).</li>
-                        <li><strong>Conteneurs & Virtualisation :</strong> Déploiement et orchestration sous Docker, Kubernetes & VMware.</li>
-                        <li><strong>Monitoring & Versioning :</strong> Surveillance système via Prometheus & Grafana, gestion de code sous Git / GitHub.</li>
-                    </ul>
-                    <div class="tags-row">
-                        <span class="tag">Kali Linux</span>
-                        <span class="tag">Active Directory</span>
-                        <span class="tag">Docker / K8s</span>
-                        <span class="tag">Prometheus / Grafana</span>
-                    </div>
-                </div>
-
-            </div>
+            <h1 class="section-heading"><span class="prefix">//</span> Compétences</h1>
+            <table width="100%" border="0" class="custom-table">
+                <thead>
+                    <tr>
+                        <th width="30%">Domaine</th>
+                        <th width="70%">Outils & Technologies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cybersécurité & SOC</strong></td>
+                        <td>Splunk, Kibana, Sophos EDR, Darktrace NDR, Gatewatcher, DFIR IRIS, Burp Suite, Metasploit, Active Directory.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Réseaux & Infras</strong></td>
+                        <td>TCP/IP, Routage, Cisco IOS (CCNA), VLANs, ACLs, Wireshark, Cœurs 5G (Free5GC).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Systèmes & Cloud</strong></td>
+                        <td>Kali Linux, Debian, Ubuntu, Windows Server, Docker, Kubernetes, VMware, Prometheus, Grafana.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Développement & Scripting</strong></td>
+                        <td>Python, Bash, C/C++, Java (Spring Boot), Django, REST API, SQL, HTML/CSS.</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <!-- Langues -->
         <section class="section">
-            <h2 class="section-heading">
-                <span class="heading-prefix">//</span> Langues
-            </h2>
-            <div class="lang-grid">
-                <div class="lang-card">
-                    <span class="lang-name">Arabe</span>
-                    <span class="lang-level">Maternelle</span>
-                </div>
-                <div class="lang-card">
-                    <span class="lang-name">Français</span>
-                    <span class="lang-level">Courant</span>
-                </div>
-                <div class="lang-card">
-                    <span class="lang-name">Anglais</span>
-                    <span class="lang-level">Technique</span>
-                </div>
-            </div>
+            <h1 class="section-heading"><span class="prefix">//</span> Langues</h1>
+            <table width="100%" border="0" class="custom-table">
+                <thead>
+                    <tr>
+                        <th width="50%">Langue</th>
+                        <th width="50%">Niveau</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Arabe</strong></td>
+                        <td>Maternelle</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Français</strong></td>
+                        <td>Courant (C1)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anglais</strong></td>
+                        <td>Technique (B2)</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
     </div>
