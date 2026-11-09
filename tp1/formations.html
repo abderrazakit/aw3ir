@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formations - Abderrazak HAJJI</title>
     
+    <!-- Script du Thème -->
+    <script src="../js/theme.js"></script>
+
+    <!-- Polices & Icônes -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -13,10 +17,14 @@
 <body>
 
     <nav class="top-nav">
-        <!-- Lien de retour exigé par le TP -->
-        <a href="index.html" class="back-btn">
-            <i class="fa-solid fa-arrow-left"></i> Retour vers la page d'accueil
-        </a>
+        <div class="nav-left">
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Retour au CV</a>
+            <button id="theme-toggle" class="theme-btn" title="Changer le mode">
+                <i id="theme-icon" class="fa-solid fa-moon"></i>
+                <span id="theme-label">Sombre</span>
+            </button>
+        </div>
+        <span class="nav-brand"><i class="fa-solid fa-terminal"></i> root@cybersec:~# ./tp1_formations.sh</span>
     </nav>
 
     <div class="cv-container">

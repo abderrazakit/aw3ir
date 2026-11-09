@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TP2 - Formulaire HTML & Javascript</title>
     
+    <!-- Script du Thème -->
+    <script src="../js/theme.js"></script>
+    
     <!-- Polices & Icônes -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Feuille de style CSS -->
@@ -14,9 +17,16 @@
 </head>
 <body>
 
+    <!-- Navigation haute -->
     <nav class="top-nav">
+        <div class="nav-left">
+            <a href="../index.html" class="back-btn"><i class="fa-solid fa-house"></i> Index</a>
+            <button id="theme-toggle" class="theme-btn" title="Changer le mode">
+                <i id="theme-icon" class="fa-solid fa-moon"></i>
+                <span id="theme-label">Sombre</span>
+            </button>
+        </div>
         <span class="nav-brand"><i class="fa-solid fa-terminal"></i> root@cybersec:~# ./tp2_form.sh</span>
-        <div class="status-tag"><span class="dot"></span> Validation & JS</div>
     </nav>
 
     <div class="container">

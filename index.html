@@ -7,217 +7,15 @@
     <title>🏫 Index des TP - Abderrazak HAJJI</title>
     <meta name="description" content="Index des Travaux Pratiques AW - Master 2 I3R Réseaux" />
 
+    <!-- Script Thème -->
+    <script src="js/theme.js"></script>
+
     <!-- Polices & Icônes -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --bg-dark: #0b0f17;
-            --bg-card: #131b27;
-            --bg-card-hover: #182436;
-            --border-color: #233144;
-            --accent-cyan: #00f2fe;
-            --accent-green: #10b981;
-            --accent-orange: #f59e0b;
-            --text-main: #f0f6fc;
-            --text-muted: #94a3b8;
-            
-            --font-sans: 'Inter', sans-serif;
-            --font-mono: 'Fira Code', monospace;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0b0f17 0%, #070a10 100%);
-            color: var(--text-main);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            padding: 2rem 1rem;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-        }
-
-        /* Navigation haute */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--font-mono);
-            font-size: 0.88rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .nav-brand {
-            color: var(--text-muted);
-        }
-
-        .status-tag {
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-green);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-green);
-        }
-
-        /* En-tête */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 2rem;
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header-info h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.3rem;
-        }
-
-        .header-info p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .header-logo img {
-            width: 90px;
-            height: 90px;
-            border-radius: 8px;
-            background: #fff;
-            padding: 6px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .header-logo img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-        }
-
-        /* Grille des TP (Cartes interactives) */
-        .tp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .tp-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-        }
-
-        .tp-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--accent-cyan);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 242, 254, 0.15);
-        }
-
-        .tp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .tp-title {
-            font-family: var(--font-mono);
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--accent-cyan);
-        }
-
-        .badge {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .badge-success {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--accent-green);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .badge-pending {
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--accent-orange);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .tp-desc {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tp-footer {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-main);
-        }
-
-        .tp-card:hover .tp-footer i {
-            transform: translateX(4px);
-            color: var(--accent-cyan);
-        }
-
-        .tp-footer i {
-            transition: transform 0.2s ease, color 0.2s ease;
-        }
-
-        footer {
-            text-align: center;
-            font-family: var(--font-mono);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        @media (max-width: 600px) {
-            .header {
-                flex-direction: column-reverse;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-            .header-info h1 {
-                font-size: 1.75rem;
-            }
-        }
-    </style>
+    <!-- Feuille de style externe -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -225,8 +23,16 @@
     <div class="container">
         <!-- Navigation console -->
         <nav class="top-nav">
-            <span class="nav-brand"><i class="fa-solid fa-terminal"></i> root@galilee:~# ls -la /tps</span>
-            <div class="status-tag"><span class="dot"></span> Applications Web (AW)</div>
+            <div class="nav-left">
+                <span class="nav-brand"><i class="fa-solid fa-terminal"></i> root@galilee:~# ls -la /tps</span>
+                <div class="status-tag"><span class="dot"></span> Applications Web (AW)</div>
+            </div>
+
+            <!-- Bouton 2 États -->
+            <button id="theme-toggle" class="theme-btn" title="Changer le mode">
+                <i id="theme-icon" class="fa-solid fa-moon"></i>
+                <span id="theme-label">Sombre</span>
+            </button>
         </nav>
 
         <!-- Header avec Logo Galilée -->
@@ -276,9 +82,9 @@
                 <div>
                     <div class="tp-header">
                         <span class="tp-title">/TP3</span>
-                        <span class="badge badge-pending">À venir</span>
+                        <span class="badge badge-success">✔ Terminé</span>
                     </div>
-                    <p class="tp-desc">Travaux pratiques 3 - Module d'Applications Web.</p>
+                    <p class="tp-desc">Formulaire Bootstrap 5.1.3, validation dynamique et affichage modale interactive.</p>
                 </div>
                 <div class="tp-footer">
                     <span>Ouvrir le module</span> <i class="fa-solid fa-arrow-right"></i>

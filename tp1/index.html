@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CV - Abderrazak HAJJI</title>
     
+    <!-- Script du Thème -->
+    <script src="../js/theme.js"></script>
+    
     <!-- Polices & Icônes -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Feuille de style demandée par le TP -->
+    <!-- Feuille de style CSS -->
     <link rel="stylesheet" href="cv.css" />
 </head>
 <body>
 
     <!-- Barre de navigation haute -->
     <nav class="top-nav">
-        <span class="nav-brand"><i class="fa-solid fa-terminal"></i> root@cybersec:~# whoami</span>
-        <div class="status-tag"><span class="dot"></span> À propos / CV</div>
+        <div class="nav-left">
+            <a href="../index.html" class="back-btn"><i class="fa-solid fa-house"></i> Index</a>
+            <button id="theme-toggle" class="theme-btn" title="Changer le mode">
+                <i id="theme-icon" class="fa-solid fa-moon"></i>
+                <span id="theme-label">Sombre</span>
+            </button>
+        </div>
+        <span class="nav-brand"><i class="fa-solid fa-terminal"></i> root@cybersec:~# ./tp1_cv.sh</span>
     </nav>
 
     <div class="cv-container">
@@ -40,7 +49,7 @@
             </div>
         </header>
 
-        <!-- Formations (Titre h1 avec lien vers formations.html) -->
+        <!-- Formations -->
         <section class="section">
             <h1 class="section-heading">
                 <a href="formations.html" class="title-link">
@@ -75,7 +84,7 @@
             </table>
         </section>
 
-        <!-- Expériences (Titre h1 avec lien vers experiences.html) -->
+        <!-- Expériences -->
         <section class="section">
             <h1 class="section-heading">
                 <a href="experiences.html" class="title-link">
