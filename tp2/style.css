@@ -1,0 +1,210 @@
+/* --- CONFIGURATION GLOBALE & THEME SOMBRE MODERNE --- */
+:root {
+    --bg-dark: #0b0f17;
+    --bg-card: #131b27;
+    --border-color: #233144;
+    --accent-blue: #0d6efd;
+    --accent-cyan: #00f2fe;
+    --accent-green: #10b981;
+    --danger-red: #dc3545;
+    --text-main: #f0f6fc;
+    --text-muted: #94a3b8;
+    
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0b0f17 0%, #070a10 100%);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+/* --- NAVIGATION HAUTE --- */
+.top-nav {
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.nav-brand {
+    color: var(--text-muted);
+}
+
+.status-tag {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-green);
+}
+
+/* --- CONTENEUR PRINCIPAL --- */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+}
+
+.page-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- REGLES DU FORMULAIRE EXIGEES PAR LE TP --- */
+form {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+label {
+    width: 150px;
+    display: inline-block;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+input {
+    width: 250px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: #0b0f17;
+    color: var(--text-main);
+    font-size: 1rem;
+    box-sizing: border-box;
+    font-family: var(--font-sans);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 8px rgba(0, 242, 254, 0.2);
+}
+
+/* --- BOUTON DE SOUMISSION --- */
+.form-actions {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-primary {
+    border-radius: 5px;
+    padding: 6px 12px;
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    display: inline-block;
+    border: 1px solid var(--accent-blue);
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+/* --- VALIDATION CSS DU FORMULAIRE --- */
+
+/* Formulaire invalide : Bouton Submit grisé */
+form:invalid input[type="submit"] {
+    background-color: gray;
+    border-color: gray;
+    cursor: not-allowed;
+}
+
+/* Champ invalide : Bordure rouge */
+input:invalid {
+    border-color: var(--danger-red);
+}
+
+/* Cacher l'icône OK si le champ est invalide */
+input:invalid + .icon-ok {
+    display: none;
+}
+
+/* Afficher l'icône OK si le champ est valide */
+input:valid + .icon-ok {
+    display: inline-block;
+    color: var(--accent-green);
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* --- AFFICHAGE ACTION.HTML --- */
+.result-box {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    border: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+}
+
+.result-box p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+}
+
+.result-box span {
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+.result-box a {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+}
+
+.result-box a:hover {
+    color: var(--text-main);
+}

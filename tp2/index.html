@@ -1,40 +1,70 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>TP2</title>
-  <meta name="description" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <!-- Place favicon.ico in the root directory -->
-
-  <style>
-    body {
-      background-color: #e9ebee;
-      font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco",
-        "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-      font-size: 16px;
-      margin: 0 auto;
-      max-width: 800px;
-    }
-  </style>
-
-  <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-  <!--<link rel="stylesheet" href="style.css">-->
-  <!--<script src="js/main.js"></script>-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TP2 - Formulaire HTML & Javascript</title>
+    
+    <!-- Polices & Icônes -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Feuille de style CSS -->
+    <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <nav>
-    <a href="..">🏠 Index</a> / TP2
-  </nav>
-  <h1>tp2</h1>
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <img src="../galilee.png" alt="Logo Galilee" />
-</body>
 
+    <nav class="top-nav">
+        <span class="nav-brand"><i class="fa-solid fa-terminal"></i> root@cybersec:~# ./tp2_form.sh</span>
+        <div class="status-tag"><span class="dot"></span> Validation & JS</div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>TP #2 - Formulaire de saisie</h1>
+            <p>Veuillez remplir l'ensemble des champs obligatoires ci-dessous.</p>
+        </header>
+
+        <main class="form-wrapper">
+            <form action="action.html" method="get">
+                
+                <p class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" minlength="2" maxlength="20" required placeholder="Ex: HAJJI" />
+                    <span class="icon-ok">✔</span>
+                </p>
+
+                <p class="form-group">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" id="firstname" name="firstname" minlength="2" maxlength="20" required placeholder="Ex: Abderrazak" />
+                    <span class="icon-ok">✔</span>
+                </p>
+
+                <p class="form-group">
+                    <label for="birthday">Date de naissance</label>
+                    <input type="date" id="birthday" name="birthday" required />
+                    <span class="icon-ok">✔</span>
+                </p>
+
+                <p class="form-group">
+                    <label for="address">Adresse postale</label>
+                    <input type="text" id="address" name="address" minlength="5" maxlength="50" required placeholder="Ex: 138 Avenue Division Leclerc" />
+                    <span class="icon-ok">✔</span>
+                </p>
+
+                <p class="form-group">
+                    <label for="email">Adresse mail</label>
+                    <input type="email" id="email" name="email" minlength="5" maxlength="30" required placeholder="nom@domaine.fr" />
+                    <span class="icon-ok">✔</span>
+                </p>
+
+                <div class="form-actions">
+                    <input type="submit" value="Envoyer" class="btn-primary" />
+                </div>
+
+            </form>
+        </main>
+    </div>
+
+</body>
 </html>
