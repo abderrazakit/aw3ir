@@ -1,39 +1,302 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>TP4</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TP4 - HTML5, Géolocalisation & JSON</title>
+    
+    <!-- Script du Thème (Sombre / Clair) -->
+    <script src="../js/theme.js"></script>
+    
+    <!-- Polices & Icônes -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Bootstrap 5 -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
+    <!-- Styles personnalisés du Thème -->
     <style>
+        :root, [data-theme="dark"] {
+            --bg-main: #0b0f17;
+            --bg-card: #131b27;
+            --input-bg: #0b0f17;
+            --table-hover: #1e2c40;
+            --border-color: #233144;
+            --accent-cyan: #00f2fe;
+            --text-main: #f0f6fc;
+            --text-muted: #94a3b8;
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        [data-theme="light"] {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --input-bg: #ffffff;
+            --table-hover: #f1f5f9;
+            --border-color: #cbd5e1;
+            --accent-cyan: #0284c7;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+        }
+
         body {
-            background-color: #e9ebee;
-            font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-            font-size: 16px;
-            margin: 0 auto;
-            max-width: 800px;
+            background-color: var(--bg-main) !important;
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .page-title {
+            color: var(--text-main);
+        }
+
+        /* Navigation haute */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-brand {
+            color: var(--text-muted);
+        }
+
+        .back-btn, .theme-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            background: var(--bg-card);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-btn:hover, .theme-btn:hover {
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Cartes & Formulaire */
+        .card-custom {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .form-label {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .form-control {
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.2s ease;
+        }
+
+        .form-control:focus {
+            background-color: var(--input-bg);
+            color: var(--text-main);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 8px rgba(0, 242, 254, 0.25);
+        }
+
+        .char-counter {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            min-width: 65px;
+            text-align: right;
+        }
+
+        /* Tableau des contacts */
+        .custom-table {
+            color: var(--text-main);
+            border-color: var(--border-color);
+            margin-bottom: 0;
+        }
+
+        .custom-table thead th {
+            border-bottom: 2px solid var(--border-color);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--text-main);
+        }
+
+        .custom-table tbody td {
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: var(--table-hover);
+        }
+
+        .custom-table a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .custom-table a:hover {
+            text-decoration: underline;
         }
     </style>
 
-    <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-    <!--<link rel="stylesheet" href="style.css">-->
-    <!--<script src="main.js"></script>-->
+    <!-- Scripts JS -->
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/gps.js"></script>
+    <script src="js/form-validation.js"></script>
 </head>
-
 <body>
-    <nav>
-        <a href="..">🏠 Index</a> / TP4
-    </nav>
-    <h1>TP4</h1>
-    <!-- Add your site or application content here -->
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <img src="../galilee.png" alt="Logo Galilee" />
-</body>
 
+    <div class="container py-4">
+        
+        <!-- Navigation haute -->
+        <nav class="top-nav">
+            <div class="nav-left">
+                <a href="../index.html" class="back-btn"><i class="fa-solid fa-house"></i> Index</a>
+                <button id="theme-toggle" class="theme-btn" title="Changer le mode">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                    <span id="theme-label">Sombre</span>
+                </button>
+            </div>
+            <span class="nav-brand"><i class="fa-solid fa-terminal"></i> root@cybersec:~# ./tp4_html5_store.sh</span>
+        </nav>
+
+        <!-- En-tête -->
+        <div class="mb-4">
+            <h1 class="h2 fw-bold page-title">TP #4 : Ajout de fonctionnalités HTML5 au formulaire</h1>
+            <p class="text-muted">Géolocalisation OpenStreetMap, compteur dynamique et stockage JSON local.</p>
+        </div>
+
+        <!-- Section Formulaire -->
+        <div class="card-custom mb-4">
+            <h2 class="h4 fw-bold mb-4 page-title">Ajouter un contact</h2>
+
+            <form id="contact-form" novalidate>
+                
+                <!-- Nom -->
+                <div class="row mb-3 align-items-center">
+                    <label for="name" class="col-sm-3 col-form-label form-label">Nom</label>
+                    <div class="col">
+                        <input type="text" class="form-control" id="name" placeholder="Ex: Battuta" minlength="5" required onkeyup="calcNbChar(this.id)" oninput="calcNbChar(this.id)">
+                    </div>
+                    <div class="col-auto char-counter" data-count>0 car.</div>
+                </div>
+
+                <!-- Prénom -->
+                <div class="row mb-3 align-items-center">
+                    <label for="firstname" class="col-sm-3 col-form-label form-label">Prénom</label>
+                    <div class="col">
+                        <input type="text" class="form-control" id="firstname" placeholder="Ex: Ibn" minlength="5" required onkeyup="calcNbChar(this.id)" oninput="calcNbChar(this.id)">
+                    </div>
+                    <div class="col-auto char-counter" data-count>0 car.</div>
+                </div>
+
+                <!-- Date de naissance -->
+                <div class="row mb-3 align-items-center">
+                    <label for="birthday" class="col-sm-3 col-form-label form-label">Date de naissance</label>
+                    <div class="col">
+                        <input type="date" class="form-control" id="birthday" required onkeyup="calcNbChar(this.id)" onchange="calcNbChar(this.id)">
+                    </div>
+                    <div class="col-auto char-counter" data-count>0 car.</div>
+                </div>
+
+                <!-- Adresse postale + Bouton GPS + Carte -->
+                <div class="row mb-3 align-items-start">
+                    <label for="address" class="col-sm-3 col-form-label form-label">Adresse</label>
+                    <div class="col">
+                        <div class="d-flex gap-2">
+                            <input type="text" class="form-control" id="address" placeholder="Ex: 138 Avenue Division Leclerc" minlength="5" required onkeyup="calcNbChar(this.id)" oninput="calcNbChar(this.id)">
+                            <button type="button" id="gps" class="btn btn-warning text-nowrap fw-medium">
+                                <i class="fa-solid fa-location-dot"></i> GPS
+                            </button>
+                        </div>
+                        <div id="map"></div>
+                    </div>
+                    <div class="col-auto char-counter pt-2" data-count>0 car.</div>
+                </div>
+
+                <!-- Adresse mail -->
+                <div class="row mb-4 align-items-center">
+                    <label for="email" class="col-sm-3 col-form-label form-label">Mail</label>
+                    <div class="col">
+                        <input type="email" class="form-control" id="email" placeholder="Votre adresse mail" required onkeyup="calcNbChar(this.id)" oninput="calcNbChar(this.id)">
+                    </div>
+                    <div class="col-auto char-counter" data-count>0 car.</div>
+                </div>
+
+                <!-- Boutons Ajouter & Reset -->
+                <div class="row">
+                    <div class="col-sm-9 offset-sm-3 d-flex gap-2">
+                        <button type="submit" id="submit" class="btn btn-primary px-4">Ajouter</button>
+                        <button type="button" id="reset" class="btn btn-outline-danger px-3">Reset</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Zone d'alerte de validation / confirmation -->
+            <div id="form-feedback"></div>
+        </div>
+
+        <!-- Section Liste des contacts -->
+        <div class="card-custom">
+            <h2 class="h4 fw-bold mb-3 page-title">
+                Liste des contacts (<span id="contact-count">0</span>)
+            </h2>
+
+            <div class="table-responsive">
+                <table id="contact-table" class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Date de naissance</th>
+                            <th>Adresse</th>
+                            <th>Mail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Contenu généré dynamiquement par displayContactList() -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</body>
 </html>
