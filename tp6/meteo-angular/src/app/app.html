@@ -1,0 +1,29 @@
+<div class="container py-4">
+  <!-- Navigation haute identique aux autres TP -->
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="back-btn">
+        <i class="fa-solid fa-house"></i> Index
+      </a>
+      <a routerLink="/" class="back-btn">
+        <i class="fa-solid fa-cloud-sun"></i> Accueil Météo
+      </a>
+      <button type="button" (click)="toggleTheme()" class="theme-btn" title="Changer le mode">
+        <i class="fa-solid" [ngClass]="isDark ? 'fa-moon' : 'fa-sun'"></i>
+        <span>{{ isDark ? 'Sombre' : 'Clair' }}</span>
+      </button>
+    </div>
+    <span class="nav-brand">
+      <i class="fa-solid fa-terminal"></i> root@cybersec:~# ./tp6_angular.sh
+    </span>
+  </nav>
+
+  <!-- En-tête -->
+  <div class="mb-4">
+    <h1 class="h2 fw-bold page-title mb-1">TP #6 : {{ title }}</h1>
+    <p class="text-muted mb-0">Application météo modulaire sous Angular avec prévisions sur 5 jours.</p>
+  </div>
+
+  <!-- Contenu dynamique des routes Angular -->
+  <router-outlet></router-outlet>
+</div>

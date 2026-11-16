@@ -1,0 +1,89 @@
+<nav aria-label="breadcrumb" class="mt-3">
+  <ol class="breadcrumb bg-light p-2 rounded border">
+    <li class="breadcrumb-item">
+      <a routerLink="/">🏠</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      Météo pour {{ meteo ? meteo.name : '...' }}
+    </li>
+  </ol>
+</nav>
+
+<div class="alert alert-danger" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="meteo && meteo.cod == 200">
+  <div class="card shadow-sm" style="max-width: 360px; margin: 0 auto;">
+    <div class="card-header fw-bold">
+      {{ meteo.name }} @{{ meteo.dt * 1000 | date : 'HH:mm' }}
+    </div>
+
+    <iframe
+      *ngIf="mapUrl"
+      class="card-img-top"
+      width="100%"
+      height="200"
+      frameborder="0"
+      scrolling="no"
+      [src]="mapUrl"
+    ></iframe>
+
+    <div class="card-body">
+      <h5 class="card-title fs-3">
+        <i [ngClass]="'wi wi-owm-day-' + meteo.weather[0].id"></i>
+        {{ meteo.main.temp }} <i class="wi wi-celsius"></i>
+      </h5>
+      <p class="card-text text-capitalize">{{ meteo.weather[0].description }}</p>
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <i class="wi wi-cloud me-2"></i> Nuage : {{ meteo.clouds.all }}%
+      </li>
+      <li class="list-group-item">
+        <i class="wi wi-humidity me-2"></i> Humidité : {{ meteo.main.humidity }}%
+      </li>
+      <li class="list-group-item">
+        <i class="wi wi-windy me-2"></i> Vent : {{ meteo.wind.speed }} km/h
+      </li>
+      <li class="list-group-item">
+        <i class="wi wi-sunrise me-2"></i> Lever du soleil :
+        {{ meteo.sys.sunrise * 1000 | date : 'H:mm' }}
+      </li>
+      <li class="list-group-item">
+        <i class="wi wi-sunset me-2"></i> Coucher du soleil :
+        {{ meteo.sys.sunset * 1000 | date : 'H:mm' }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Prévisions sur 5 jours -->
+  <div class="mt-5" *ngIf="forecastList.length > 0">
+    <h4 class="mb-3">📅 Prévisions sur 5 jours</h4>
+    <div class="row row-cols-1 row-cols-md-5 g-3">
+      <div class="col" *ngFor="let day of forecastList">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-header fw-semibold">
+            {{ day.dt * 1000 | date : 'EEE d MMM' }}
+          </div>
+          <div class="card-body">
+            <div class="fs-2 my-2">
+              <i [ngClass]="'wi wi-owm-day-' + day.weather[0].id"></i>
+            </div>
+            <h5 class="card-title">
+              {{ day.main.temp | number : '1.0-1' }} <i class="wi wi-celsius"></i>
+            </h5>
+            <p class="card-text small text-muted text-capitalize">
+              {{ day.weather[0].description }}
+            </p>
+          </div>
+          <div class="card-footer small text-muted">
+            <i class="wi wi-humidity"></i> {{ day.main.humidity }}% |
+            <i class="wi wi-windy"></i> {{ day.wind.speed }} km/h
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

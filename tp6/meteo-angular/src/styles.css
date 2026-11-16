@@ -1,0 +1,152 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "weather-icons/css/weather-icons.min.css";
+
+:root, [data-theme="dark"] {
+  --bg-main: #0b0f17;
+  --bg-card: #131b27;
+  --input-bg: #0b0f17;
+  --list-hover: #1e2c40;
+  --border-color: #233144;
+  --accent-cyan: #00f2fe;
+  --text-main: #f0f6fc;
+  --text-muted: #94a3b8;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+[data-theme="light"] {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --input-bg: #ffffff;
+  --list-hover: #f1f5f9;
+  --border-color: #cbd5e1;
+  --accent-cyan: #0284c7;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+body {
+  background-color: var(--bg-main) !important;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-title, h1, h2, h3, h4, h5 {
+  color: var(--text-main);
+}
+
+/* Navigation haute */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.nav-brand {
+  color: var(--text-muted);
+}
+
+.back-btn, .theme-btn {
+  color: var(--text-main);
+  text-decoration: none;
+  background: var(--bg-card);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-btn:hover, .theme-btn:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+}
+
+/* Adaptation des composants Bootstrap au thème */
+.theme-surface, .breadcrumb {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+.breadcrumb-item.active {
+  color: var(--text-muted) !important;
+}
+
+.breadcrumb-item a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+}
+
+.form-control {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.form-control:focus {
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 8px rgba(0, 242, 254, 0.25);
+}
+
+.list-group-item {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+.list-group-item a {
+  color: var(--accent-cyan);
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.card-header, .card-footer {
+  background-color: var(--list-hover);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+pre {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--accent-cyan);
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+}
+
+hr {
+  border-color: var(--border-color);
+  opacity: 1;
+}
